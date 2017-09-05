@@ -37,6 +37,12 @@ public class NewsController
         jc.setExcludes(new String[]{"content","createdate","type","link","dept","content_big","firstpic_big","newtype","modifier","company","modifydate","contenttype"});
         JSONArray s = JSONArray.fromObject(list,jc);
         Map<String,Object> map = new HashMap();
+        if(list.size()>0){
+            map.put("success",true);
+        }else{
+            map.put("success",false);
+        }
+
         map.put("data", s);
         String jsonresult = JSON.toJSONString(map);
 
